@@ -2,9 +2,12 @@
 
 The Olympus DAO was built on the Ethereum blockchain. Olympus is a decentralized reserve currency protocol that is based on the OHM token. It was launched in May 2021 with a goal to build community-owned DeFi infrastructure and bring more transparency and stability in the financial space.
 The Olympus DAO Treasury.sol handles the logic for the finance or keeping record of assets on the Olympus DAO protocol. The treasury system is an accounting and financial management mechanism that manages the cash and other financial assets of the organization. It manages the funds of the Olympus DAO. The Treasury.sol contract contains functions that allow users to deposit funds into the treasury, withdraw funds, and transfer funds to other contracts or wallets.
+
 The Olympus treasury contract uses safemath.sol library for bascic calculations. The library provides basic addition, subtraction, multiplication, division, and modulo mathematical calculation functions that are being used in contract.
+
 Another library used in the contract is the SafeERC20.sol library. This is a wrapper library around ERC-20 calls. It helps for secure interaction with your token. SafeERC20 is a wrapper around the interface that eliminates the need to handle boolean return values. It’s a helper to make safe the interaction with someone else’s ERC20 token in your contracts.
-The following are interfaces that the Olympus DAO treasury uses:
+
+**The following are interfaces that the Olympus DAO treasury uses:**
 The iOwnable. sol contract interface included in the Olympus treasury contract provides the most basic single account ownership to a contract. Only one account will become the owner of the contract and can perform administration-related tasks. The current owner of the contract can either transfer or renounce the ownership of the contract.
 The IERC20. sol file is an interface that defines the functions and events that are required for the ERC20 token standard.
 ierc20metadata is Interface for the optional metadata functions from the ERC20 standard.
