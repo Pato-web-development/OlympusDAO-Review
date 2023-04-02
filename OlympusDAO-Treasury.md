@@ -27,7 +27,6 @@ The DAO also has the OlympusAccessControlled.sol file that contains modifiers th
 **From here, we will deep dive into other features of the Treasury.sol file of the Olympus DAO.**
 
 Events are emitted for some functions when they execute i.e, for Deposit, an event is emitted in the event log which includes the address of the token, amount and value of the token. Other functions that emit events are Withdrawal, CreateDebt, Minted etc.
-
 **The contract also contains an enum of STATUS(constants) which are:** 
         RESERVEDEPOSITOR,
         RESERVESPENDER,
@@ -41,7 +40,7 @@ Events are emitted for some functions when they execute i.e, for Deposit, an eve
         SOHM,
         OHMDEBTOR
         
- **Structs in the contract also collect the following data:**
+    **Structs in the contract also collect the following data:**
         STATUS managing;
         address toPermit;
         address calculator;
@@ -112,11 +111,18 @@ A burn function initializes when the user deposits OHM and the user's debt balan
 In other words, as the user deposits OHM, the whole debt balance including the one for other tokens is updated. An event is emitted logging the address of the debtor, contract address of OHM, the amount and the value.
 
 **Managerial Functions:**
-The auditReserves Function:
+**The auditReserves Function:**
 This function can only be called by the governor of the treasury. The function helps to register new tokens in the Reserves. Tokens have to be ERC20 because they are using the IERC20 interface.
 An event is emitted which logs the tokens in the Reserves. 
 
+**The setDebtLimit Function:**
+This function can only be called by the governor of the treasury. It takes in an address and a value which is the limit. With this function, the governor can set the debt limit for any user.
 
+**The enable Function:**
+This function helps to enable a token to be used for lending on the platform. And this function can only be triggered by the governor of the treasury. An event is emitted which shows the token contract address, status and a boolean value true if successfully enabled.
+
+**The disable Function:**
+This function disables a token, i.e, stops a token from being used for lending. The function can only be triggered by the governor or guardian of the treasury. It takes in the status and address of the contract and emits the token contract address, status, and boolean value true if successfully disabled.
 
 
 
