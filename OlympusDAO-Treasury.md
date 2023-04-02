@@ -1,6 +1,7 @@
 **Olympus DAO Review**
 
 The Olympus DAO was built on the Ethereum blockchain. Olympus is a decentralized reserve currency protocol that is based on the OHM token. It was launched in May 2021 with a goal to build community-owned DeFi infrastructure and bring more transparency and stability in the financial space.
+
 The Olympus DAO Treasury.sol handles the logic for the finance or keeping record of assets on the Olympus DAO protocol. The treasury system is an accounting and financial management mechanism that manages the cash and other financial assets of the organization. It manages the funds of the Olympus DAO. The Treasury.sol contract contains functions that allow users to deposit funds into the treasury, withdraw funds, and transfer funds to other contracts or wallets.
 
 The Olympus treasury contract uses safemath.sol library for bascic calculations. The library provides basic addition, subtraction, multiplication, division, and modulo mathematical calculation functions that are being used in contract.
@@ -9,16 +10,24 @@ Another library used in the contract is the SafeERC20.sol library. This is a wra
 
 **The following are interfaces that the Olympus DAO treasury uses:**
 The iOwnable. sol contract interface included in the Olympus treasury contract provides the most basic single account ownership to a contract. Only one account will become the owner of the contract and can perform administration-related tasks. The current owner of the contract can either transfer or renounce the ownership of the contract.
-The IERC20. sol file is an interface that defines the functions and events that are required for the ERC20 token standard.
+
+The IERC20. sol interface is an interface that defines the functions and events that are required for the ERC20 token standard.
 ierc20metadata is Interface for the optional metadata functions from the ERC20 standard.
+
 It also makes use of the IOHM.sol which contains the mint and burning functions of the OHM token.
-The IsOHM.sol file contains vie functions that show the current supply of the OHM token and debt balances of each user.
+
+The IsOHM.sol interface contains functions that show the current supply of the OHM token and debt balances of each user.
+
 The Olympus Treasury.sol has an IBondingCalculator interface, a mathematical tool that allows investors to calculate Bond Yield at a specific price or Bond Price at a desired level of yield.
+
 An ITreasury.sol interface that uses external functions (mint, withdraw, manage) that can be called outside the ontract and view functions to show the token Value, excess reserve and base supply.
+
 The DAO also has the OlympusAccessControlled.sol file that contains modifiers that control access to specific functions in the DAO. For example, if you are a governor in the DAO, you will have access to an only governor-controlled function. Olympus DAO controls access by using the following modifiers for members according to their ranks in the DAO, "OnlyGovernor, onlyGuardian(), onlyPolicy(), onlyVault()".
-From here, we will deep dive into other features of the Treasury.sol file of the Olympus DAO.
+
+**From here, we will deep dive into other features of the Treasury.sol file of the Olympus DAO.**
+
 Events are emitted for some functions when they execute i.e, for Deposit, an event is emitted in the event log which includes the address of the token, amount and value of the token. Other functions that emit events are Withdrawal, CreateDebt, Minted etc.
-The contract also contains an enum of STATUS(constants) which are 
+**The contract also contains an enum of STATUS(constants) which are:** 
         RESERVEDEPOSITOR,
         RESERVESPENDER,
         RESERVETOKEN,
@@ -30,7 +39,8 @@ The contract also contains an enum of STATUS(constants) which are
         REWARDMANAGER,
         SOHM,
         OHMDEBTOR
-    Structs in the contract also collect the following data:
+        
+    **Structs in the contract also collect the following data:**
         STATUS managing;
         address toPermit;
         address calculator;
@@ -39,6 +49,7 @@ The contract also contains an enum of STATUS(constants) which are
         bool executed;
 
 The contract contains state variables such as OHM and sOHM etc.
+
 The contract mapped status to address with the name "registry".
 It also mapped STATUS to a mapping of an address to a boolean with the name "permissions", thereby creating a 2D mapping.
 
