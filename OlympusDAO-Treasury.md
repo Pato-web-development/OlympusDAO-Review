@@ -27,6 +27,7 @@ The DAO also has the OlympusAccessControlled.sol file that contains modifiers th
 **From here, we will deep dive into other features of the Treasury.sol file of the Olympus DAO.**
 
 Events are emitted for some functions when they execute i.e, for Deposit, an event is emitted in the event log which includes the address of the token, amount and value of the token. Other functions that emit events are Withdrawal, CreateDebt, Minted etc.
+
 **The contract also contains an enum of STATUS(constants) which are:** 
         RESERVEDEPOSITOR,
         RESERVESPENDER,
@@ -40,7 +41,7 @@ Events are emitted for some functions when they execute i.e, for Deposit, an eve
         SOHM,
         OHMDEBTOR
         
-    **Structs in the contract also collect the following data:**
+ **Structs in the contract also collect the following data:**
         STATUS managing;
         address toPermit;
         address calculator;
